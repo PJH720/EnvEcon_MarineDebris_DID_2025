@@ -1,0 +1,73 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Data files (download separately from Zenodo)
+data/patches/*
+!data/patches/.gitkeep
+data/predicted_unet/*
+!data/predicted_unet/.gitkeep
+data/shapefiles/*
+!data/shapefiles/.gitkeep
+data/predicted_rf/
+data/dataset.h5
+data/dataset_si.h5
+data/dataset_glcm.h5
+data/indices/
+data/texture/
+
+# Model outputs and logs
+logs/*.log
+logs/tsboard_segm/
+logs/tsboard_multilabel/
+semantic_segmentation/unet/trained_models/*
+!semantic_segmentation/unet/trained_models/.gitkeep
+semantic_segmentation/random_forest/trained_models/*
+multi-label/resnet/trained_models/*
+!multi-label/resnet/trained_models/.gitkeep
+
+# Temporary and analysis files
+*.tmp
+*.bak
+data/eda_images/
+data/analysis_results/
+data/presentation/
+

@@ -1,17 +1,35 @@
 ![Marine Debris Archive Logo](./docs/marida_trans.png)
 
-Marine Debris Archive (MARIDA) is a marine debris-oriented dataset on Sentinel-2 satellite images. 
-It also includes various sea features that co-exist.
-MARIDA is primarily focused on the weakly supervised pixel-level semantic segmentation task.
-This repository hosts the basic tools for the extraction of spectral signatures
- as well as the code for the reproduction of the baseline models.
- 
+# MARIDA: Marine Debris Archive
+
+Marine Debris Archive (MARIDA) is a comprehensive marine debris-oriented benchmark dataset on Sentinel-2 satellite images. It also includes various sea features that co-exist with marine debris in coastal and offshore environments.
+
+## Dataset Overview
+
+- **Temporal Coverage**: 2015-2021
+- **Spatial Coverage**: 17 Sentinel-2 tiles across 12 countries, globally distributed marine pollution hotspots
+- **Format**: GeoTIFF (.tif) files with 11 spectral bands
+- **Resolution**: 256×256 pixel patches
+- **Classes**: 15 distinct marine and atmospheric classes (Marine Debris, Sargassum, Ships, Water types, etc.)
+- **Task Focus**: Weakly supervised pixel-level semantic segmentation
+
+This repository hosts the basic tools for the extraction of spectral signatures as well as the code for the reproduction of the baseline models (U-Net, Random Forest, ResNet).
+
+## Citation
+
 If you find this repository useful, please consider giving a star :star: and citation:
  > Kikaki K, Kakogeorgiou I, Mikeli P, Raitsos DE, Karantzalos K (2022) MARIDA: A benchmark for Marine Debris detection from Sentinel-2 remote sensing data. PLoS ONE 17(1): e0262247. https://doi.org/10.1371/journal.pone.0262247
 
-In order to download MARIDA go to https://doi.org/10.5281/zenodo.5151941.
+## Dataset Download
 
-Alternatively, MARIDA can be downloaded from the [Radiant MLHub](https://mlhub.earth/data/marida_v1). The `tar.gz` archive file downloaded from this source includes the STAC catalog associated with this dataset.
+**⚠️ IMPORTANT**: The dataset files (`patches/`, `predicted_unet/`, `shapefiles/`) are **not included** in this repository due to their large size.
+
+You **must** download MARIDA from one of the following sources:
+
+- **Primary Source**: https://doi.org/10.5281/zenodo.5151941
+- **Alternative**: [Radiant MLHub](https://mlhub.earth/data/marida_v1) (includes STAC catalog)
+
+After downloading, extract the dataset into the `data/` folder as described in [Dataset Structure](#dataset-structure).
 
 
 ## Contents
@@ -69,20 +87,29 @@ conda activate marida
 
 ### Dataset Structure
 
-In order to train or test the models, download [MARIDA](https://doi.org/10.5281/zenodo.5151941)
-and extract it in the `data/` folder. The final structure should be:
+**📥 Before you begin**, download [MARIDA dataset](https://doi.org/10.5281/zenodo.5151941) and extract it into the `data/` folder.
+
+The expected directory structure after extraction:
 
     .
     ├── ...
     ├── data                                     # Main Dataset folder
-    │   ├── patches                              # Folder with patches Structured by Unique Dates and S2 Tiles  
-	│   │    ├── S2_DATE_TILE                    # Unique Date
-	│   │    │    ├── S2_DATE_TILE_CROP.tif      # Unique 256 x 256 Patch 
-	│   │    │    ├── S2_DATE_TILE_CROP_cl.tif   # 256 x 256 Classification Mask for Semantic Segmentation Task
-	│   │    │    └── S2_DATE_TILE_CROP_conf.tif # 256 x 256 Annotator Confidence Level Mask
-	│   │    └──  ...                        
-    │   ├── splits                               # Train/Val/Test split Folder (train_X.txt, val_X.txt, test_X.txt) 
-    │   └── labels_mapping.txt                   # Mapping between Unique 256 x 256 Patch and labels for Multi-label Classification Task
+    │   ├── patches/                             # 🔴 REQUIRED: Download from Zenodo
+    │   │    ├── S2_DATE_TILE/                   # Unique Date and Tile
+    │   │    │    ├── S2_DATE_TILE_CROP.tif      # 256×256 Patch (11 bands)
+    │   │    │    ├── S2_DATE_TILE_CROP_cl.tif   # Classification Mask (Semantic Segmentation)
+    │   │    │    └── S2_DATE_TILE_CROP_conf.tif # Annotator Confidence Level Mask
+    │   │    └── ...                             # (4,143 patches total)
+    │   ├── shapefiles/                          # 🔴 REQUIRED: Download from Zenodo
+    │   │    └── S2_DATE_TILE.{shp,dbf,prj,...}  # Original annotation shapefiles
+    │   ├── splits/                              # ✅ INCLUDED: Train/Val/Test splits
+    │   │    ├── train_X.txt
+    │   │    ├── val_X.txt
+    │   │    └── test_X.txt
+    │   ├── labels_mapping.txt                   # ✅ INCLUDED: Multi-label classification labels
+    │   └── predicted_unet/                      # 📁 Empty folder (for model outputs)
+
+> **Note**: `patches/` and `shapefiles/` folders contain large files (~several GB) and must be downloaded separately from [Zenodo](https://doi.org/10.5281/zenodo.5151941).
 
 
 The mapping in S2_DATA_TILE_CROP_cl between Digital Numbers and Classes is:
