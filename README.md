@@ -88,7 +88,11 @@
     *   **정책 시점:**  2019‑10‑31 (Guatemala 일회용 플라스틱 규제 및 플라스틱 차단)
     *   **DID 모형:**
 
-$$\text{debris_ratio}_{it} = \beta_0 + \beta_1 \text{Treated}_i + \beta_2 \text{Post}_t + \beta_3 (\text{Treated}_i \times \text{Post}_t) + \epsilon_{it}$$
+$$
+Y_{it} = \beta_0 + \beta_1 \text{Treated}_i + \beta_2 \text{Post}_t + \beta_3 (\text{Treated}_i \times \text{Post}_t) + \epsilon_{it}
+$$
+
+여기서 $Y_{it}$는 $i$ 지역의 $t$ 시점 잔해 비율(debris ratio)을 나타냅니다.
 
 *   추가로, 시계열 상관분석 및 계절성 조정(Seasonal adjustment)으로 정책 전후 동태를 점검한다.
 
