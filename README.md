@@ -80,7 +80,7 @@
 1.  **종속 변수 구축 (Remote Sensing)**
     *   **데이터 출처:** 유럽우주국(ESA)의 **Sentinel-2** 다중분광 위성 이미지.
     *   **학습 데이터:** 해양 잔해 탐지 벤치마크 데이터셋인 **MARIDA (Marine Debris Archive)** 를 사용했습니다. MARIDA는 해조류, 선박, 거품 등 15가지 해양 특징과 플라스틱 잔해를 구분하도록 정교하게 주석 처리된 데이터입니다.
-    *   **모델:** Sentinel-2 데이터를 기반으로 **U-Net** 구조를 채택한 심층 분할(Semantic Segmentation) 모델을 활용하여 픽셀 단위로 잔해 비율을 추정했습니다,.
+    *   **모델:** Sentinel-2 데이터를 기반으로 **U-Net** 구조를 채택한 심층 분할(Semantic Segmentation) 모델을 활용하여 픽셀 단위로 잔해 비율을 추정했습니다.
 2.  **DID 분석 환경**
     *   **분석 기간:** 2016‑07‑17 ~ 2020‑12‑22 (N=359)
     *   **처치군 (Treatment):** Motagua River Basin (16PCC 타일).
@@ -106,11 +106,10 @@ $$
 | **DID ($\beta_3$)** | **-0.095363** (p=0.6361) | |
 
 1.  **정책 효과의 불투명성 (Inconclusive Effect)**
-    *   DID 추정치는 -0.0954로 감소하는 경향을 보였으나, p-value가 0.6361로 **통계적 유의성 기준($p < 0.05$)을 충족하지 못했습니다**. 이는 정책 효과가 0이라는 **귀무가설을 기각할 수 없음**을 의미합니다.
+    *   DID 추정치는 -0.0954로 감소하는 경향을 보였으나, p-value가 0.6361로 **통계적 유의성 기준($p < 0.05$)을 충족하지 못했습니다**. 이는 정책 효과에 대한 **귀무가설(null hypothesis)을 기각할 수 없음**을 의미합니다.
 2.  **데이터 및 방법론적 한계 (Critical Limitations)**
-    *   **대조군의 극심한 샘플 부족:** 정책 후 대조군의 샘플 수($n=2$)가 매우 적어, 대조군의 정책 후 평균 변화량($+0.117766$)이 **극도의 변동성 하에서 계산**되었으며, 이는 DID 추정치($\beta_3$)의 정밀도와 신뢰성을 심각하게 훼손하는 **결정적 한계**입니다,,.
-    *   **평행 추세 가정 위협:** 처치군의 변화량(+0.0224)과 대조군의 변화량(+0.1178)이 크게 달라, DID 분석의 핵심인 **평행 추세 가정**이 위배되었을 가능성이 있습니다.
-    *   **동태적 추이:** Motagua 지역의 잔해 비율은 정책 시행 후 **시간 경과에 따라 유의하게 증가하는 경향**을 보였습니다 ($r=0.2410$, $p=0.0477$),. 이는 정책의 의도와 상반되는 동태적 추이를 시사하며, DID 분석과 함께 추가적인 심층 분석이 필요합니다.
+    *   **대조군의 극심한 샘플 부족:** 정책 후 대조군의 샘플 수($n=2$)가 매우 적어, 대조군의 정책 후 평균 변화량($+0.117766$)이 **극도의 변동성 하에서 계산**되었으며, 이는 DID 추정치($\beta_3$)의 정밀도와 신뢰성을 심각하게 훼손하는 **결정적 한계**입니다.
+    *   **동태적 추이:** Motagua 지역의 잔해 비율은 정책 시행 후 **시간 경과에 따라 유의하게 증가하는 경향**을 보였습니다 ($r=0.2410$, $p=0.0477$). 이는 정책의 의도와 상반되는 동태적 추이 가능성을 시사할 수 있으며, DID 분석과 함께 추가적인 심층 분석이 필요합니다.
 
 ---
 
@@ -118,11 +117,10 @@ $$
 
 - **계량경제학적 보강 (Causal Inference)**
     1.   **검정력 강화:** 현재의 효과 크기를 입증하려면 유효 표본 크기를 약 **17배** 늘려야 하므로, 장기 패널 데이터를 추가하거나 표본 크기의 불균형을 해소해야 합니다.
-    2.   **동태적 분석:** 지역 및 시간 **고정효과(Fixed Effects)**를 포함한 **이벤트 스터디(Event Study)** 설계를 적용하여 평행 추세 가정을 명시적으로 검증하고 정책 효과가 시간에 따라 어떻게 발현되는지 추적해야 합니다.
+    2.   **동태적 분석:** 지역 및 시간 **고정효과(Fixed Effects)** 를 포함한 **이벤트 스터디(Event Study)** 설계를 적용하여 평행 추세 가정을 검증합니다.
 - 향후 연구 방향 예시는 다음과 같습니다.
 	1. **데이터 확장**: 더 긴 기간, 더 많은 타일과 관측치를 포함해 표본 크기와 대조군의 다양성을 확보.
-	2. **이벤트 스터디(Event Study)**: 시점별 효과를 추적하고 평행 추세 가정을 검증.
-	3. **경제 지표 연계**: 관광, 수산업, 주택가격 등 환경경제학 수업에서 다루는 실질 경제 변수와 연동한 분석 설계.
+	2. **경제 지표 연계**: 관광, 수산업, 주택가격 등 환경경제학에서 다루는 실질 경제 변수와 연동한 분석 설계.
 
 ---
 
@@ -216,9 +214,9 @@ The expected directory structure after extraction:
     │   └── predicted_unet/                      # 📁 Empty folder (for model outputs)
 
 ## Reference
-1. France 24 (2019). *Guatemala prohíbe el uso de plásticos de un solo uso.* 뉴스 기사.
+1. France 24 (2019). *Guatemala prohíbe el uso de plásticos de un solo uso.* [뉴스 기사](https://www.france24.com/es/20190920-guatemala-prohibe-plastico-un-solo-uso).
 2. MARIDA: [Kikaki, K. et al. (2022). *MARIDA: A benchmark for marine debris detection from Sentinel-2 remote sensing data.* PLOS ONE 17(1): e0262247.](https://doi.org/10.5194/egusphere-egu21-15243)
-3. *Large-scale detection of marine debris in coastal areas with Sentinel-2*: [Rußwurm, M., Venkatesa, S. J., \& Tuia, D. *Large-scale detection of marine debris in coastal areas with Sentinel-2.* Working paper.]()
+3. *Large-scale detection of marine debris in coastal areas with Sentinel-2*: [Rußwurm, M., Venkatesa, S. J., \& Tuia, D. *Large-scale detection of marine debris in coastal areas with Sentinel-2.* Working paper.](https://arxiv.org/html/2307.02465)
 4. EnvEcon_Beamer) (GDrive): [!EnvEcon_Beamer) Evaluation of the Effectiveness of Marine Debris Reduction Policy through DID Analysis.pdf](https://drive.google.com/file/d/1J-W6gtSYffuhDKcKbGKSkkM9lHvE8buB/view?usp=sharing)
 
 ## License
