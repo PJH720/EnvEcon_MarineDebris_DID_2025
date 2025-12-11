@@ -86,11 +86,13 @@
     *   **처치군 (Treatment):** Motagua River Basin (16PCC 타일).
     *   **대조군 (Control):** 기타 모든 지역.
     *   **정책 시점:**  2019‑10‑31 (Guatemala 일회용 플라스틱 규제 및 플라스틱 차단)
-    *   DID 모형:
+    *   **DID 모형:**
 
-$\text{debris\_ratio}_{it} = \beta_0 + \beta_1 \text{Treated}_i + \beta_2 \text{Post}_t + \beta_3 (\text{Treated}_i \times \text{Post}_t) + \epsilon_{it}$
+$$
+\text{debris\_ratio}_{it} = \beta_0 + \beta_1 \text{Treated}_i + \beta_2 \text{Post}_t + \beta_3 (\text{Treated}_i \times \text{Post}_t) + \epsilon_{it}
+$$
 
-    - 추가로, 시계열 상관분석 및 계절성 조정(Seasonal adjustment)으로 정책 전후 동태를 점검한다.
+*   추가로, 시계열 상관분석 및 계절성 조정(Seasonal adjustment)으로 정책 전후 동태를 점검한다.
 
 ---
 
