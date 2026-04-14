@@ -9,7 +9,7 @@
 
 - EnvEcon Beamer (GDrive):
 [Evaluation of the Effectiveness of Marine Debris Reduction Policy through DID Analysis (PDF)](https://drive.google.com/file/d/1J-W6gtSYffuhDKcKbGKSkkM9lHvE8buB/view?usp=sharing)
-- Korean: [한국어 README](README.ko.md)
+- Korean version: [한국어 README](README.ko.md)
 
 ---
 
