@@ -3,12 +3,13 @@
 ### **[ECO3005 Environmental Economics, Fall 2025] Final Group Project Empirical Analysis**
 
 #### **Project Title**
-Evaluation of the Effectiveness of Marine Debris Reduction Policy through Satellite Big Data and Difference-in-Differences (DID) Analysis
-
-[한국어 README](README.ko.md)
+*Evaluation of the Effectiveness of Marine Debris Reduction Policy through DID Analysis*
 
 ###### Presentation
-- **EnvEcon Beamer (GDrive):** [Evaluation of the Effectiveness of Marine Debris Reduction Policy through DID Analysis (PDF)](https://drive.google.com/file/d/1J-W6gtSYffuhDKcKbGKSkkM9lHvE8buB/view?usp=sharing)
+
+- EnvEcon Beamer (GDrive):
+[Evaluation of the Effectiveness of Marine Debris Reduction Policy through DID Analysis (PDF)](https://drive.google.com/file/d/1J-W6gtSYffuhDKcKbGKSkkM9lHvE8buB/view?usp=sharing)
+- Korean: [한국어 README](README.ko.md)
 
 ---
 
