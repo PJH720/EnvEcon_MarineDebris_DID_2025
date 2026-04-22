@@ -210,7 +210,7 @@ The expected directory structure after extraction:
     │   └── predicted_unet/                      # 📁 Empty folder (for model outputs)
 
 ## Reference
-1. France 24 (2019). *Guatemala prohíbe el uso de plásticos de un solo uso.* [뉴스 기사](https://www.france24.com/es/20190920-guatemala-prohibe-plastico-un-solo-uso).
+1. France 24 (2019). *Guatemala prohíbe el uso de plásticos de un solo uso.* [News letter](https://www.france24.com/es/20190920-guatemala-prohibe-plastico-un-solo-uso).
 2. MARIDA: [Kikaki, K. et al. (2022). *MARIDA: A benchmark for marine debris detection from Sentinel-2 remote sensing data.* PLOS ONE 17(1): e0262247.](https://doi.org/10.5194/egusphere-egu21-15243)
 3. *Large-scale detection of marine debris in coastal areas with Sentinel-2*: [Rußwurm, M., Venkatesa, S. J., \& Tuia, D. *Large-scale detection of marine debris in coastal areas with Sentinel-2.* Working paper.](https://arxiv.org/html/2307.02465)
 4. EnvEcon_Beamer) (GDrive): [!EnvEcon_Beamer) Evaluation of the Effectiveness of Marine Debris Reduction Policy through DID Analysis.pdf](https://drive.google.com/file/d/1J-W6gtSYffuhDKcKbGKSkkM9lHvE8buB/view?usp=sharing)
